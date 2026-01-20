@@ -21,12 +21,12 @@ export class TravelApprovalComponent implements OnInit {
   }
 
   getTravelRequests() {
-    this.http.get<any[]>('http://localhost:3000/travelRequests')
+    this.http.get<any[]>('https://role-based-dashboards-1.onrender.com/travelRequests')
       .subscribe(data => this.travelRequests = data);
   }
 
   updateStatus(id: number, status: string) {
-    this.http.patch(`http://localhost:3000/travelRequests/${id}`, { status })
+    this.http.patch(`https://role-based-dashboards-1.onrender.com/travelRequests/${id}`, { status })
       .subscribe(() => {
         alert(`travel request ${status}`);
         this.getTravelRequests(); 

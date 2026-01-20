@@ -55,11 +55,11 @@ export class DashboardComponent implements OnInit {
     setInterval(() => this.updateTime(), 1000);
 
 
-    this.http.get<any[]>('http://localhost:3000/leaveBalance')
+    this.http.get<any[]>('https://role-based-dashboards-1.onrender.com/leaveBalance')
       .subscribe(data => this.leaveBalance = data);
 
    
-    this.http.get<any>('http://localhost:3000/dashboard')
+    this.http.get<any>('https://role-based-dashboards-1.onrender.com/dashboard')
       .subscribe(data => {
         this.attendanceData = data.attendanceRate;
         this.presentDays = data.presentDays;
@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
       });
 
    
-    this.http.get<any[]>('http://localhost:3000/upcomingHolidays')
+    this.http.get<any[]>('https://role-based-dashboards-1.onrender.com/upcomingHolidays')
       .subscribe(data => this.upcomingHolidays = data);
 
 

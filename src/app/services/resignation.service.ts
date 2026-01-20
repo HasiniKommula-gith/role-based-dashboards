@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ResignationService {
-  private apiUrl = 'http://localhost:3000/resignationSubmissions';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/resignationSubmissions';
 
   constructor(private http: HttpClient) {}
 

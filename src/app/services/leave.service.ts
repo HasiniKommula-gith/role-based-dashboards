@@ -7,7 +7,7 @@ import { Leave } from '../models/leave';
   providedIn: 'root'
 })
 export class LeaveService {
-  private apiUrl = 'http://localhost:3000/leaveRequests';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/leaveRequests';
 
   constructor(private http: HttpClient) {}
 

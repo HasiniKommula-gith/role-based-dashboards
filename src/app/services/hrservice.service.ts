@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HrService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://role-based-dashboards-1.onrender.com';
 
   constructor(private http: HttpClient) {}
 

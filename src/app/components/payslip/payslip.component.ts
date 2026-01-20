@@ -22,7 +22,7 @@ export class PayslipComponent implements OnInit {
 
   ngOnInit() {
    
-    this.http.get<any>('http://localhost:3000/payslips').subscribe({
+    this.http.get<any>('https://role-based-dashboards-1.onrender.com/payslips').subscribe({
       next: (data) => {
         this.payslips = data;
         this.updatePayslip();

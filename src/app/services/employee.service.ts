@@ -7,7 +7,7 @@ import { Employee } from '../models/employee';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiUrl = 'http://localhost:3000/employees';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/employees';
 
   constructor(private http: HttpClient) { }
 

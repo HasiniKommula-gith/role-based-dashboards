@@ -21,12 +21,12 @@ export class LoanApprovalsComponent implements OnInit {
   }
 
   getLoanRequests() {
-    this.http.get<any[]>('http://localhost:3000/loanApplications')
+    this.http.get<any[]>('https://role-based-dashboards-1.onrender.com/loanApplications')
       .subscribe(data => this.loanRequests = data);
   }
 
   updateStatus(id: number, status: string) {
-    this.http.patch(`http://localhost:3000/loanApplications/${id}`, { status })
+    this.http.patch(`https://role-based-dashboards-1.onrender.com/loanApplications/${id}`, { status })
       .subscribe(() => {
         alert(`Loan request ${status}`);
         this.getLoanRequests(); 

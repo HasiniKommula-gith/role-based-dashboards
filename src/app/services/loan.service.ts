@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoanService {
-  private apiUrl = 'http://localhost:3000/loanApplications';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/loanApplications';
 
   constructor(private http: HttpClient) {}
 

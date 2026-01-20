@@ -7,7 +7,7 @@ import { Profile } from '../models/profile';
   providedIn: 'root',
 })
 export class ProfileService {
-  private apiUrl = 'http://localhost:3000/profile';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/profile';
 
   constructor(private http: HttpClient) {}
 

@@ -43,7 +43,7 @@ export interface TeamMember {
   providedIn: 'root'
 })
 export class PerformanceService {
-  private apiUrl = 'http://localhost:3000/';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/';
 
   constructor(private http: HttpClient) {}
 

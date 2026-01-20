@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TravelService {
-  private apiUrl = 'http://localhost:3000/travelRequests';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/travelRequests';
 
   constructor(private http: HttpClient) {}
 

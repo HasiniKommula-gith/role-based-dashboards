@@ -24,7 +24,7 @@ export interface DailyStatus {
   providedIn: 'root'
 })
 export class AttendanceService {
-  private apiUrl = 'http://localhost:3000/attendance';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/attendance';
 
   constructor(private http: HttpClient) {}
 

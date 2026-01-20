@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AttendService {
-  private apiUrl = 'http://localhost:3000/attend';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/attend';
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +20,7 @@ export class AttendService {
   }
 
 updateAttendanceRecord(id: number, record: Attendance) {
-  return this.http.put(`http://localhost:3000/attend/${id}`, record);
+  return this.http.put(`https://role-based-dashboards-1.onrender.com/attend/${id}`, record);
 }
 
 
@@ -30,6 +30,6 @@ updateAttendanceRecord(id: number, record: Attendance) {
   }
   
 addAttendanceRecord(record: Attendance) {
-  return this.http.post<Attendance>('http://localhost:3000/attend', record);
+  return this.http.post<Attendance>('https://role-based-dashboards-1.onrender.com/attend', record);
 }
 }

@@ -21,12 +21,12 @@ export class ResignationApprovalComponent implements OnInit {
   }
 
  getResignationSubmissions() {
-    this.http.get<any[]>('http://localhost:3000/resignationSubmissions')
+    this.http.get<any[]>('https://role-based-dashboards-1.onrender.com/resignationSubmissions')
       .subscribe(data => this.ResignationRequests = data);
   }
 
   updateStatus(id: number, status: string) {
-    this.http.patch(`http://localhost:3000/resignationSubmissions/${id}`, { status })
+    this.http.patch(`https://role-based-dashboards-1.onrender.com/resignationSubmissions/${id}`, { status })
       .subscribe(() => {
         alert(`Resignation Request ${status}`);
         this.getResignationSubmissions(); 

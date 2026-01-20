@@ -21,12 +21,12 @@ export class LeaveApprovalComponent implements OnInit {
   }
 
   getLeaveRequests() {
-    this.http.get<any[]>('http://localhost:3000/leaveRequests')
+    this.http.get<any[]>('https://role-based-dashboards-1.onrender.com/leaveRequests')
       .subscribe(data => this.leaveRequests = data);
   }
 
   updateStatus(id: number, status: string) {
-    this.http.patch(`http://localhost:3000/leaveRequests/${id}`, { status })
+    this.http.patch(`https://role-based-dashboards-1.onrender.com/leaveRequests/${id}`, { status })
       .subscribe(() => {
         alert(`Leave request ${status}`);
         this.getLeaveRequests(); 

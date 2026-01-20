@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PayslipService {
 
- private apiUrl = 'http://localhost:3000/payslip';
+ private apiUrl = 'https://role-based-dashboards-1.onrender.com/payslip';
 
   constructor(private http: HttpClient) {}
 

@@ -16,7 +16,7 @@ export interface Payslip {
 
 @Injectable({ providedIn: 'root' })
 export class PayService {
-  private apiUrl = 'http://localhost:3000/payslips';
+  private apiUrl = 'https://role-based-dashboards-1.onrender.com/payslips';
 
   constructor(private http: HttpClient) {}
 
