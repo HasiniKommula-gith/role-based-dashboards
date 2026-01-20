@@ -55,10 +55,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "prerender": {
-                "discoverRoutes": false,
-                "failureHandler": "ignore"
-              }
+              "prerender": true
             },
             "development": {
               "optimization": false,
