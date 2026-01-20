@@ -357,12 +357,12 @@
     },
     {
       "id": "0",
-      "date": "2025-08-21",
-      "status": "half-day",
-      "checkIn": "10:13",
+      "date": "2025-11-25",
+      "status": "absent",
+      "checkIn": "09:56",
+      "checkOut": "09:56",
       "location": "Office",
-      "workingHours": "3h 32m",
-      "checkOut": "13:45"
+      "workingHours": "0h 0m"
     },
     {
       "id": "0",
@@ -441,6 +441,22 @@
       "date": "2025-08-21",
       "status": "present",
       "checkIn": "10:13",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-09-24",
+      "status": "present",
+      "checkIn": "11:19",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": 0,
+      "date": "2025-11-25",
+      "status": "present",
+      "checkIn": "09:56",
       "location": "Office",
       "workingHours": "0h 0m"
     }
@@ -593,18 +609,18 @@
       "endDate": "2025-08-29",
       "daysRequested": 9,
       "reason": "casual",
-      "status": "Pending"
+      "status": "Approved"
     }
   ],
   "profile": [
     {
       "id": "1",
-      "fullName": "Hasinii",
-      "email": "hasini64@gmail.com",
+      "fullName": "Hasini",
+      "email": "Hasini@gmail.com",
       "phoneNumber": "9876543210",
       "designation": "Frontend Developer",
       "department": "Engineering",
-      "employeeId": "EMP002",
+      "employeeId": "EMP001",
       "hireDate": "2025-07-01",
       "address": "Hyderabad",
       "emergencyContact": "9123456789"
