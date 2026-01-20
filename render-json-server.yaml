@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: json-server
+    env: node
+    startCommand: npm run json-server
+    buildCommand: npm install
