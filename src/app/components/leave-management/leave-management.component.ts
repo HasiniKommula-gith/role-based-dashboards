@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { LeaveService } from '../../services/leave.service';
 import { Leave } from '../../models/leave';
@@ -18,7 +18,7 @@ export class LeaveManagementComponent implements OnInit {
   activeTab: string = 'requests'; 
   todayStr = '';
 
-  constructor(private fb: FormBuilder, private leaveService: LeaveService) {
+  constructor(private fb: FormBuilder, private leaveService: LeaveService, @Inject(PLATFORM_ID) private platformId: Object) {
     const today = new Date();
     this.todayStr = today.toISOString().split('T')[0]; // yyyy-MM-dd
 
@@ -33,8 +33,10 @@ export class LeaveManagementComponent implements OnInit {
 
   ngOnInit(): void {
   this.loadLeaves();
-  const storedTab = localStorage.getItem('activeLeaveTab');
-  if (storedTab) this.activeTab = storedTab;
+  if (isPlatformBrowser(this.platformId)) {
+    const storedTab = localStorage.getItem('activeLeaveTab');
+    if (storedTab) this.activeTab = storedTab;
+  }
 }
 
 
@@ -44,7 +46,9 @@ export class LeaveManagementComponent implements OnInit {
 
   setActiveTab(tab: string) {
     this.activeTab = tab;
-    localStorage.setItem('activeLeaveTab', tab);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('activeLeaveTab', tab);
+    }
   }
 
   calculateDaysDifference() {

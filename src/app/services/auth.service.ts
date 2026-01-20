@@ -1,6 +1,7 @@
  
 
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -13,9 +14,14 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
-  constructor(private http: HttpClient, private router: Router) {
-    const token = localStorage.getItem('token');
-    const role = localStorage.getItem('role');
+  constructor(private http: HttpClient, private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {
+    let token: string | null = null;
+    let role: string | null = null;
+    
+    if (isPlatformBrowser(this.platformId)) {
+      token = localStorage.getItem('token');
+      role = localStorage.getItem('role');
+    }
     
     this.currentUserSubject = new BehaviorSubject<any>(
       token && role ? { token, role } : null
@@ -36,17 +42,25 @@ export class AuthService {
   }
 
   saveToken(token: string, role: string) {
-    localStorage.setItem('token', token);
-    localStorage.setItem('role', role);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', role);
+    }
     this.currentUserSubject.next({ token, role });
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('token');
+    }
+    return null;
   }
 
   getRole(): string | null {
-    return localStorage.getItem('role');
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('role');
+    }
+    return null;
   }
 
   isHR(): boolean {
@@ -60,7 +74,9 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear();
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.clear();
+    }
     this.currentUserSubject.next(null);
     this.router.navigate(['/login']);
   }

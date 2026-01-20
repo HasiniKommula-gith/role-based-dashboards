@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   userRole = '';
   menuItems: any[] = [];
 
-  constructor(private authService: AuthService,private router:Router) {}
+  constructor(private authService: AuthService, private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
     this.userRole = this.authService.getRole() || 'Employee';
@@ -24,6 +24,8 @@ export class SidebarComponent implements OnInit {
   }
 
   getUserNameFromToken(): string {
+    if (!isPlatformBrowser(this.platformId)) return '';
+    
     const token = localStorage.getItem('token');
     if (!token) return '';
 
@@ -65,7 +67,9 @@ export class SidebarComponent implements OnInit {
   logout(): void {
   const confirmLogout = window.confirm("Are you sure you want to logout?");
   if (confirmLogout) {
-    localStorage.removeItem("token"); 
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem("token");
+    }
     this.router.navigate(['/login']); 
   }
 }
