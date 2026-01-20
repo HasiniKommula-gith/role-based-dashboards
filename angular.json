@@ -54,7 +54,11 @@
                 }
               ],
               "optimization": true,
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "prerender": {
+                "discoverRoutes": false,
+                "failureHandler": "ignore"
+              }
             },
             "development": {
               "optimization": false,
